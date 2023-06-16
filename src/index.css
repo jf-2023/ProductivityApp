@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: yellowgreen;
+  padding: 30px 25px;
+}
+
+nav img {
+  width: 100px;
+  margin-right: 05px;
+}
+
+nav h1 {
+  margin-right: auto;
+}
+
+nav h3 {
+  color: black;
+}
+
+.main-items li::marker{
+  font-size: large;
+  color: yellowgreen;
+}
+
+
+
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-size: x-small;
+  margin-top: 30px;
+}
+
+
