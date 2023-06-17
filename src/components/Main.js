@@ -29,7 +29,7 @@ function Main(){
             (<div className='task-container' key={key}>
                 {task}
                 <button >Complete!</button>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(key)}>Delete</button>
             </div>))}
     </div>
 )}

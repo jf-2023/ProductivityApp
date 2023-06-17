@@ -29,10 +29,12 @@ body {
 }
 
 .task-container {
-  width: 80px;
-  height: 50px;
-  border: 5px solid black;
-  background-color: aqua;
+  width: 80%;
+  height: 20px;
+  display: flex;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: lightgreen;
   text-decoration: line-through;
 }
 
@@ -54,13 +56,8 @@ nav {
   padding: 30px 25px;
 }
 
-nav img {
-  width: 100px;
-  margin-right: 05px;
-}
-
 nav h1 {
-  margin-right: auto;
+  color: lightgreen;
 }
 
 nav h3 {
