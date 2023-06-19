@@ -1,10 +1,9 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Main(){
     const [tasks, setTasks] = useState([]);
     const [text, setText] = useState("");
-    const [count, setCount] = useState("");
 
     function getText(e) {
         setText(e.target.value);
@@ -19,10 +18,22 @@ function Main(){
     }
 
     function handleDelete(key){
-        const newTasks = [...tasks];
-        newTasks.splice(key, 1);
-        setTasks(newTasks)
-    }
+        const newTasks = tasks.filter((task, index) => index !== key);
+        setTasks(newTasks);
+    };
+
+    //To load tasks
+    useEffect(() => {
+        const savedTasks = localStorage.getItem('tasks');
+        if(savedTasks){
+            setTasks(JSON.parse(savedTasks));}
+    }, [])    
+
+    //To save tasks
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks])
+
 
     return (
     <div className="Todo-Container">
@@ -33,9 +44,9 @@ function Main(){
         </form>
             {tasks.map((task, key) => 
             (<div className='task-container' key={key}>
-                <span style={{ textDecoration: count % 2 == 0 ? 'line-through' : '' }}>{task}</span>
-                <button onClick={() => setCount(count + 1)}>Complete!</button>
-                <button onClick={() => handleDelete({key})}>Delete</button>
+                <span>{task}</span>
+                <button >Complete!</button>
+                <button onClick={() => handleDelete(key)}>Delete</button>
             </div>))}
     </div>
 )}
