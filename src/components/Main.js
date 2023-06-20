@@ -12,10 +12,21 @@ function Main(){
     function onSubmit(event){
         event.preventDefault();
         if (text.trim() !== '') {
-            setTasks([...tasks, text])
-            setText('')
+            setTasks([...tasks, {text: text, completed: false}]);
+            setText('');
         }
     }
+
+    function handleComplete(key){
+        const completeTasks = tasks.map((task, index) => {
+            if (index === key){
+                return {...task, completed: !task.completed};
+            };
+        return task;
+        });
+        setTasks(completeTasks)
+    }
+
 
     function handleDelete(key){
         const newTasks = tasks.filter((task, index) => index !== key);
@@ -44,9 +55,13 @@ function Main(){
         </form>
             {tasks.map((task, key) => 
             (<div className='task-container' key={key}>
-                <span>{task}</span>
-                <button >Complete!</button>
-                <button onClick={() => handleDelete(key)}>Delete</button>
+                <span className={task.completed ? 'completed-task':''}>
+                    {task.text}
+                </span>
+                <div className="button-container">
+                    <button className="complete" onClick={() => handleComplete(key)}>complete</button>
+                    <button className='trash' onClick={() => handleDelete(key)}>Delete</button>
+                </div>
             </div>))}
     </div>
 )}
