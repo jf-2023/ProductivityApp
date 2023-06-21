@@ -6,6 +6,16 @@ body {
   background-color: black;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 25px;
+}
+
+nav h3 {
+  color: brown;
+}
+
 .Todo-Container {
   display: flex;
   flex-direction: column;
@@ -13,22 +23,47 @@ body {
   height: 70vh;
   width: 600px;
   height: 400px;
-  border: 3px solid yellowgreen;
+  border: 1px solid white;
   border-radius: 15px;
-  background-color: darkseagreen;
+  background-color: black;
+  overflow-y: auto;
+}
+
+.Todo-Container::-webkit-scrollbar{
+  width: 5px;
+}
+
+.Todo-Container::-webkit-scrollbar-track{
+  margin-block: 5px;
+}
+
+.Todo-Container::-webkit-scrollbar-thumb{
+  background: white;
+  border-radius:3px;
+}
+
+.Todo-Container h1{
+  color: white;
 }
 
 .add-todo {
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   width: 80%;
   font-size: large;
-  background-color: darkseagreen;
-  
+  color: white;
+  background-color: black; 
 }
 
 .add-todo:focus {
   outline: none;
+}
+
+.add-button {
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
 }
 
 .task-container {
@@ -36,10 +71,13 @@ body {
   height: 20px;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid white;
   border-radius: 5px;
-  background-color: lightgreen;
+  color: white;
+  font-weight: bold;
+  font-size: large;
 }
 
 .button-container{
@@ -47,54 +85,21 @@ body {
   gap: 3px;
 }
 
-.add-button {
-  background-color: lightgreen;
-  border: none;
-  border-radius: 5px;
-}
-
-.complete {
-  color: lightgreen;
-  background-color: black;
-  border: none;
-  border-radius: 5px;
-}
-
-.trash {
-  color: green;
-  font-weight: bold;
-  background-color: black;
-  border: none;
-  border-radius: 5px;
-}
-
 .completed-task {
   text-decoration: line-through;
   opacity: 0.5;
 }
 
-
-
-
-
-
-
-
-
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: grey;
-  padding: 30px 25px;
-}
-
-nav h1 {
+.complete {
   color: lightgreen;
+  background-color: black;
+  border: 1px solid lightgreen;
+  border-radius: 5px;
 }
 
-nav h3 {
-  color: yellowgreen;
+.trash {
+  color: red;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
 }
-

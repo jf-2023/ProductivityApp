@@ -48,10 +48,10 @@ function Main(){
 
     return (
     <div className="Todo-Container">
-        <h1>Daily Tasks</h1>
+        <br/>
         <form action="" className="Todo">
             <input type="text" value={text} className="add-todo" onChange={getText}/>
-            <button className="add-button" onClick={onSubmit}>Add Task</button>
+            <button className="add-button" onClick={onSubmit}>Add Daily Task</button>
         </form>
             {tasks.map((task, key) => 
             (<div className='task-container' key={key}>
@@ -59,8 +59,8 @@ function Main(){
                     {task.text}
                 </span>
                 <div className="button-container">
-                    <button className="complete" onClick={() => handleComplete(key)}>complete</button>
-                    <button className='trash' onClick={() => handleDelete(key)}>Delete</button>
+                    <button className="complete" onClick={() => handleComplete(key)}>Done</button>
+                    <button className='trash' onClick={() => handleDelete(key)}>X</button>
                 </div>
             </div>))}
     </div>
