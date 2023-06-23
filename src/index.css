@@ -103,3 +103,22 @@ nav h3 {
   border: none;
   border-radius: 5px;
 }
+
+
+.time_container {
+  margin-top: 7%;
+  border: 1px solid white;
+  border-radius: 15px ;
+}
+
+.time {
+  color: white;
+}
+
+.time_button {
+  margin-top: 5px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+}
