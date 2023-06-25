@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Recording from '../assets/Recording.m4a'
 
-function Main(){
+function Todo(){
     const [tasks, setTasks] = useState([]);
     const [text, setText] = useState("");
 
@@ -14,8 +15,12 @@ function Main(){
         if (text.trim() !== '') {
             setTasks([...tasks, {text: text, completed: false}]);
             setText('');
+            new Audio(Recording).play();
         }
     }
+
+    const filterTasks = tasks.filter(task => task.completed === true);
+    const countDone = filterTasks.length;
 
     function handleComplete(key){
         const completeTasks = tasks.map((task, index) => {
@@ -26,7 +31,6 @@ function Main(){
         });
         setTasks(completeTasks)
     }
-
 
     function handleDelete(key){
         const newTasks = tasks.filter((task, index) => index !== key);
@@ -45,7 +49,6 @@ function Main(){
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks])
 
-
     return (
     <div className="Todo-Container">
         <br/>
@@ -63,7 +66,8 @@ function Main(){
                     <button className='trash' onClick={() => handleDelete(key)}>X</button>
                 </div>
             </div>))}
+            <figcaption className="tracker">{ countDone } / <strong>{ tasks.length }</strong></figcaption>
     </div>
 )}
 
-export default Main
+export default Todo
