@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Recording from '../assets/Recording.m4a'
 
 function Todo(){
     const [tasks, setTasks] = useState([]);
@@ -15,7 +14,6 @@ function Todo(){
         if (text.trim() !== '') {
             setTasks([...tasks, {text: text, completed: false}]);
             setText('');
-            new Audio(Recording).play();
         }
     }
 
