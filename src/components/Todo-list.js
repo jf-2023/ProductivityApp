@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import moment from 'moment';
 
 function Todo({clock}){
-    const currentDate = moment().format('MMMM Do (h:mm:ss A)');
+    const currentDate = moment().format('MMMM Do');
 
     const [tasks, setTasks] = useState([]);
     const [text, setText] = useState("");
@@ -15,7 +15,7 @@ function Todo({clock}){
     function onSubmit(event){
         event.preventDefault();
         if (text.trim() !== '') {
-            setTasks([...tasks, {text: text, completed: false, score: count}]);
+            setTasks([...tasks, {text: text, completed: false, point: 0, total:0,  streak: 0, score: 0}]);
             setText('');
             setCount(0);
         }
@@ -27,17 +27,16 @@ function Todo({clock}){
     function handleComplete(key){
         const completeTasks = tasks.map((task, index) => {
             if (index === key){
-                const newScore = task.completed ? 0 : 1;
-                return {...task, completed: !task.completed, score: newScore};
+                const point = task.completed ? 0 : 1;
+                return {...task, completed: !task.completed, point: point};
             };
         return task;
         });
         setTasks(completeTasks);
     }
 
-
     function handleNew(){
-        const resetTasks = tasks.map(task => ({ ...task, completed: false , score: tasks.score / count}));
+        const resetTasks = tasks.map(task => ({ ...task, completed: false , point: 0, total: task.total + task.point, streak: task.streak + 1, score: ((task.total / task.streak) * 100).toFixed(2)}));
         setTasks(resetTasks);
         setCount(count + 1);
     }
@@ -62,8 +61,8 @@ function Todo({clock}){
     return (
     <div className="Todo-Container">
         <h1 className="clock">
-            {currentDate} (Day:
-            <span className="count"> {count}</span> ) 
+            (Day:
+            <span className="count">{count}</span> ) 
         </h1>
         <form action="" className="Todo">
             <input type="text" value={text} className="add-todo" onChange={getText}/>
