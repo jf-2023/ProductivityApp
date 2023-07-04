@@ -17,7 +17,6 @@ function Todo({clock}){
         if (text.trim() !== '') {
             setTasks([...tasks, {text: text, completed: false, point: 0, total:0,  streak: 0, score: 0}]);
             setText('');
-            setCount(0);
         }
     }
 
@@ -44,7 +43,7 @@ function Todo({clock}){
     function handleReset(){
         const resetScore = tasks.map(task => ({ ...task, completed: false , point: 0, total: 0, streak: 0, score: 0}));
         setTasks(resetScore);
-        //setCount(0);
+        setCount(0);
 
     }
 
@@ -88,7 +87,7 @@ function Todo({clock}){
             </div>))}
             <figcaption className="tracker">{ countDone } / <strong>{ tasks.length }</strong></figcaption>
             <button className="newday" onClick={() => handleNew()}>New Day</button>
-            <button className="reset" onClick={() => handleReset()}>Reset</button>
+            <button className="reset" onClick={() => handleReset()}>Reset Days</button>
             
     </div>  
 )}
