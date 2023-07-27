@@ -1,23 +1,42 @@
+import Stones from './components/Habits';
 import Todo from './components/Todo-list';
-import Timer from './components/Timer';
 import React, { useState } from 'react';
 
 
+
 function App() {
-  let time = new Date().toLocaleTimeString();
-  const [clock, setClock] = useState(time) ;
-  
-  const updateTime = () => {
-      let newTime = new Date().toLocaleTimeString();
-      setClock(newTime);
-  }
-
-  setInterval(updateTime, 1000);
-
   return (
-    <div className="App">
-      <Timer clock={clock}/>
-      <Todo clock={ clock }/>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          {/* Component 1 */}
+          {/* Add your component content here */}
+        </div>
+        <div className="col-md-6">
+          {/* Component 2 */}
+          {/* Add your component content here */}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-4">
+          {/* Component 3 */}
+          {/* Add your component content here */}
+        </div>
+        <div className="col-md-4">
+          {/* Component 4 */}
+          {/* Add your component content here */}
+        </div>
+        <div className="col-md-4">
+          {/* Component 5 */}
+          {/* Add your component content here */}
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          {/* Component 6 */}
+          {/* Add your component content here */}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from 'moment';
 
-function Todo({clock}){
+function Todo(){
     const currentDate = moment().format('MMMM Do');
 
     const [tasks, setTasks] = useState([]);
