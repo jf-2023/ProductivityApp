@@ -92,4 +92,12 @@ function Todo(){
     </div>  
 )}
 
-export default Todo
+
+
+export default function Todo2(){
+    return(
+        <div>
+            <h1>Todo List</h1>
+        </div>
+    );
+}
