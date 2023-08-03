@@ -260,3 +260,8 @@ body {
   border-radius: 9px;
   grid-area: 2 / 3 / 3 / 4;
 }
+
+
+.test{
+  color: white;
+}
