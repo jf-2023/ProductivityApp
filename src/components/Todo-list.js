@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import moment from 'moment';
 
 function Todo(){
-    const currentDate = moment().format('MMMM Do');
-
     const [tasks, setTasks] = useState([]);
     const [text, setText] = useState("");
     const [count, setCount] = useState(0);
