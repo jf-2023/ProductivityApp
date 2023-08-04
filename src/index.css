@@ -1,8 +1,9 @@
 body {
-  background-color:black;
+  background-color:white;
   ;
 }
 
+/*
 .container {
   display: grid;
   grid-template-rows: repeat(8, 1fr);
@@ -11,6 +12,7 @@ body {
   gap: 6px;
   height: 97vh;
 }
+*/
 
 .item {
   background-color: #201e20;
@@ -261,7 +263,17 @@ body {
   grid-area: 2 / 3 / 3 / 4;
 }
 
+.icon-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-size: 20px; /* Adjust the size as needed */
+  color: black; /* Change the color if needed */
+  /* Add any other styling you want */
+}
 
-.test{
-  color: white;
+.custom-link {
+  color: grey;
+  text-decoration: none; /* Remove underline */
 }
